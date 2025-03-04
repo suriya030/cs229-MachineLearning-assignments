@@ -1,0 +1,34 @@
+\item \points{6} In this part, we compare the model complexity of the Linear Layer NN model with a convolution-based model. Let the original input image be a grayscale image with height and width $r$, meaning each image is of shape (1, $r$, $r$).
+
+We define a \textbf{CNN} (convolutional neural network) version of our original model. We let the number of output classes be $k$, and we have the following operations:
+
+1. \textit{Convolutional Layer}: We define \( a(i) \) as the output of applying a 2D convolutional layer with 32 filters (with bias) of size \( 3 \times 3 \), padding 1, stride 1, and ReLU activation on an input image \( x^{(i)} \in \mathbb{R}^{1 \times r \times r}\). % \in \mathbb{R}^{h \times h} 
+
+\[a_1^{(i)} = \mathrm{ReLU}(\mathrm{Conv2D}(x^{(i)}))\]
+
+2. \textit{Flattening}: After applying the convolution, we flatten \( a_1^{(i)} \) into a vector.
+
+\[a_2^{(i)} = \mathrm{Flatten}(a_1^{(i)}))\]
+
+3. \textit{Linear Transformation}: We apply a linear transformation to the flattened vector, mapping it to $\mathbb{R}^k$
+\[
+\bar{h}_{\theta}(x^{(i)}) = {W^{[2]}}^\top a_2^{(i)} + b^{[2]}
+\]
+
+4. \textit{Softmax Output}: We apply the softmax activation to obtain our final output.
+\[
+{h}_{\theta}(x^{(i)}) = \mathrm{softmax}(\bar{h}_{\theta}(x^{(i)})) 
+\]
+
+\begin{enumerate}
+    \item \subquestionpoints{1} In the CNN model, what are the dimensions of $a(i)$ right after the convolutional layer (before the flattening operation) in terms of $r$?
+
+    \item \subquestionpoints{1} In the CNN model, how many parameters are there in terms of in terms of the input height/width $r$ and the number of output classes $k$? % How many are there in the MNIST example ($r=28, k=10$)?
+
+    \item \subquestionpoints{1} In the Linear Layer NN model, how many parameters are there in terms of the input height/width $r$, the number of hidden units $m$, and the number of output classes $k$? % How many are there in the MNIST example ($r=28, m=300, k=10$)?
+
+    \item \subquestionpoints{1} What is the maximum value of $m$ for which the Linear NN model has fewer parameters than the CNN model on the MNIST dataset ($r=28, k=10$)?
+    
+    \item \subquestionpoints{2} What is one advantage and one disadvantage of using the CNN compared to the Linear Layer NN?
+    
+\end{enumerate}

@@ -1,0 +1,7 @@
+\item \subquestionpoints{5} Build a decision tree for classifying whether a person has a college degree by greedily choosing threshold splits that minimize the classification error. To greedily select our split, we choose the feature and threshold that maximize the gain function:
+
+\[
+j, \theta = \arg \max_{j, \theta} G(j, \theta).
+\]
+
+In other words, we find the feature \( j \) and the split value \( \theta \) such that we maximize our gain function \( G(j, \theta) \). Provide a list of all splits and the classification error reduction at each split.

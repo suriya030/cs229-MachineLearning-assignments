@@ -1,0 +1,25 @@
+\item \points{25} {\bf Transformers in PyTorch}
+In this problem, you will use PyTorch to implement a simplified transformer model that can generate Shakespeare-like text. The transformer architecture relies on the \textbf{self-attention mechanism}, which allows the model to focus on relevant parts of the input sequence when making predictions. Self-attention compares a query (current token) to keys (all tokens in the sequence) and generates attention scores that determine how much weight each token should have in the final representation. Each vector is computed from the input sequence \( X \) using linear projections:
+
+\[
+Q = X W_Q, \quad K = X W_K, \quad V = X W_V
+\]
+
+Here, \( W_Q, W_K, W_V \) are learned weight matrices. Once these are computed, attention scores are derived by scaling the dot product of \( Q \) and \( K \):
+
+\[
+\text{Attention}(Q, K, V) = \text{softmax}\left( \frac{Q K^\top}{\sqrt{d_k}} \right) V
+\]
+
+This equation calculates how much focus (attention) each token in the sequence should give to other tokens. The \textbf{softmax} function ensures that the attention weights sum to 1. In \textbf{multi-head attention}, this process is repeated across multiple "heads", allowing the model to learn different attention patterns simultaneously. The outputs from each head are then concatenated and projected through another linear layer. You will implement this attention mechanism by following the mathematical formulas above.
+
+Rather than implementing from scratch, you will build on Andrej Karpathy’s excellent teaching resources. Specifically, you will complete the skeleton code for the attention mechanism, transformer model, and encoder in \href{https://colab.research.google.com/drive/1T4mnkBUL4VSKMpTPOn_HAzpZTwQhMSqD?usp=sharing}{\textbf{this Colab notebook}}. The data loading, training, and evaluation functions
+are already implemented for you. You will not need to change any of this code. Do NOT modify the hyperparameters. Fill out the missing code by following the instructions in the comments, and reference PyTorch documentation online for syntax. If implemented correctly, the model will train in approximately 20 to 30 minutes. (Note: The tqdm estimate can be unreliable, so instead confirm that the training is on average at least 5 iterations per second).
+
+You will be training and evaluating your model with the Tiny Shakespeare dataset, a text corpus frequently used in language modeling tasks. The dataset contains a collection of Shakespeare's plays in plain text form. Instructions to download the dataset are provided in the colab.
+
+Report the final validation loss, which we expect to be below 1.7, and submit the generated output for the provided input sample (you may need to run it a few times to get a response that you like, as it is not deterministic). Also download the pdf for the .ipynb file and attach it as a part of your writeup. Connect to a T4 GPU in Colab to ensure efficient training. Remember to make a copy of the colab before editing cells, otherwise you will not be able to save your work! 
+
+\ifnum\solutions=1 {
+\input{transformers/01-transformerlm-sol}
+} \fi
