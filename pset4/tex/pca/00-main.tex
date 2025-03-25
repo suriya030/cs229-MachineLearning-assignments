@@ -1,0 +1,31 @@
+\item \points{15} {\bf PCA} 
+
+In class, we showed that PCA finds the ``variance maximizing'' directions onto
+which to project the data.  In this problem, we find another interpretation of PCA. 
+
+Suppose we are given a set of points $\{x^{(1)},\ldots,x^{(\nexp)}\}$. Let us
+assume that we have as usual preprocessed the data to have zero-mean and unit variance
+in each coordinate.  For a given unit-length vector $u$, let $f_u(x)$ be the 
+projection of point $x$ onto the direction given by $u$.  I.e., if 
+${\cal V} = \{\alpha u : \alpha \in \Re\}$, then 
+\[
+f_u(x) = \arg \min_{v\in {\cal V}} ||x-v||^2.
+\]
+
+
+
+
+
+\begin{enumerate}
+ 	\input{tex/pca/01-pca}
+	\ifnum\solutions=1 {
+	\input{tex/pca/01-pca-sol}
+} \fi
+
+\input{tex/pca/02-pca}
+\ifnum\solutions=1 {
+	\input{tex/pca/02-pca-sol}
+} \fi
+
+
+\end{enumerate}

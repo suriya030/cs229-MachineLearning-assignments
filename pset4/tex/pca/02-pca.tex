@@ -1,0 +1,25 @@
+\item \subquestionpoints{5} Now we will explore the relationship between two of the most popular dimensionality reduction techniques, SVD and PCA, at a basic conceptual level. Before we proceed with the question itself, let us briefly recap the SVD and PCA techniques and a few important observations:
+
+\begin{itemize}
+    \item \textbf{Eigenvalue Decomposition}: First, recall that the eigenvalue decomposition of a real, symmetric, and square matrix \( B \) (of size \( d \times d \)) can be written as the following product:
+    \[
+    B = Q \Lambda Q^\top
+    \]
+    where \( \Lambda = \text{diag}(\lambda_1, \dots, \lambda_d) \) contains the eigenvalues of \( B \) (which are always real) along its main diagonal, and \( Q \) is an orthogonal matrix containing the eigenvectors of \( B \) as its columns.
+    
+    \item \textbf{Principal Component Analysis (PCA)}: Given a data matrix \( M \) (of size \( p \times q \)), we showed in part (a) that PCA involves finding eigenvectors of the matrix \( M^\top M \). The matrix of these eigenvectors can be thought of as a rigid rotation in a high-dimensional space. PCA then projects each row of $M$ onto the top $k$ principal components to produce a lower dimensional version of each data point (where $k << q$).
+\end{itemize}
+
+Now we turn to the question! Let us define a real matrix \( M \) (of size \( p \times q \)) and let us assume this matrix corresponds to a dataset with \( p \) data points and \( q \) dimensions.
+
+\begin{enumerate}
+    \item \subquestionpoints{2} Prove that \( M^\top M \) is real, symmetric, and square. Write its eigenvalue decomposition in terms of $Q, \Lambda, Q^T$.
+    
+    \item \subquestionpoints{2} SVD involves the decomposition of a data matrix \( M \in \mathbb{R}^{p \times q} \) into a product $M = U \Sigma V^\top$ where \( U \in \mathbb{R}^{p \times p} \) and \( V \in \mathbb{R}^{q \times q} \) are column-orthonormal matrices and \( \Sigma \in \mathbb{R}^{p \times q} \) is a diagonal matrix. The entries along the diagonal of \( \Sigma \) are referred to as the singular values of \( M \). Write a simplified expression for \( M^\top M \) in terms of \( V \), \( V^T \), and \( \Sigma \).\\
+    \textit{Hint:} A matrix $A$ is column-orthonormal if and only if $A^T A = I$
+
+    \item \subquestionpoints{1} What is the relationship (if any) between the eigenvalues of \( M^\top M \) and the singular values of \( M \)?
+
+\end{enumerate}
+
+
